@@ -13,7 +13,9 @@ let calcBtn = document.querySelector(".calculate-button")
 btn.addEventListener("click", writeResult);
 
 inputList.addEventListener("click", function (event) {
+    if (event.target.type == "button") {
         event.target.parentElement.remove()
+    }
 })
 
 calcBtn.addEventListener("click", showResult)
@@ -68,7 +70,7 @@ function showResult() {
                     break
                 }               
             }
-            
+
             if (listNew) {
                 detailAll.push(listsDetail)               
             }           
