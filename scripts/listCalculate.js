@@ -79,6 +79,6 @@ function showResult() {
         
     });
     let paragraphResult = document.createElement("p")   
-    paragraphResult.insertAdjacentHTML("beforeend", `Вам знадобиться ріного листа -${detailAll.length} шт`)
+    paragraphResult.insertAdjacentHTML("beforeend", `Вам знадобиться рівного листа -${detailAll.length} шт`)
     calcBtn.parentElement.append(paragraphResult)
 }
