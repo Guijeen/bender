@@ -5,6 +5,8 @@ let plankQuantity = document.querySelector(".plank-quantity")
 let btn = document.querySelector(".button")
 let inputList = document.querySelector(".input-list")
 let calcBtn = document.querySelector(".calculate-button")
+let ordered = []
+
 
 
 
@@ -41,7 +43,7 @@ function createList(height, qount) {
 
     let delButton = document.createElement("button")
     delButton.type = "button"
-    delButton.insertAdjacentHTML("beforeend", "DELETE")
+    delButton.insertAdjacentHTML("beforeend", "Видалити")
    
     paragraphHeight.insertAdjacentHTML("beforeend", height.value + " мм - ")
     paragraphqQantity.insertAdjacentHTML("beforeend", qount.value +" шт")
@@ -53,32 +55,41 @@ function createList(height, qount) {
 }
 
 function showResult() {
-    let lists = document.querySelectorAll(".list-item")
+    ordered = []
     let detailAll = [0]
-
-    lists.forEach(element => {
-        let listsDetail = parseInt(element.querySelector(".detail").textContent)
-        let listsQount = parseInt(element.querySelector(".qount").textContent)
-
-        for (let index = 0; index < listsQount; index++) {
-            let listNew = true
-            
+    createZakaz()
+    ordered.forEach(element => {
+         for (let index = 0; index < element.qount; index++) {
+            let listNew = true        
             for (let ls = 0; ls < detailAll.length; ls++) {
-                if ( detailAll[ls]+listsDetail <= 1250) {
-                     detailAll[ls] += listsDetail
+                if ( detailAll[ls]+element.cutting <= 1250) {
+                     detailAll[ls] += element.cutting
                     listNew = false
                     break
                 }               
             }
-
             if (listNew) {
-                detailAll.push(listsDetail)               
+                detailAll.push(element.cutting)               
             }           
-        }
-        console.log(detailAll);
-        
+        }       
     });
-    let paragraphResult = document.createElement("p")   
+    let paragraphResult = document.querySelector(".paragraph-result")  
+    paragraphResult.textContent = ""
     paragraphResult.insertAdjacentHTML("beforeend", `Вам знадобиться рівного листа -${detailAll.length} шт`)
-    calcBtn.parentElement.append(paragraphResult)
+}
+
+function createZakaz() {
+    let lists = document.querySelectorAll(".list-item")
+    lists.forEach(element => {
+        let listsDetail = parseInt(element.querySelector(".detail").textContent)
+        let listsQount = parseInt(element.querySelector(".qount").textContent)
+        ordered.push(new constrDeteil(listsDetail, listsQount))       
+    });
+    ordered.sort((a, b) => b.cutting - a.cutting);    
+}
+
+function constrDeteil(cutting, qount) {
+    this.cutting = cutting,
+    this.qount = qount
+    
 }
