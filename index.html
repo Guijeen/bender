@@ -8,24 +8,26 @@
   <body>
     <header></header>
     <main>
-      <section>
+      <section class="input">
         <h2>Ввід данних</h2>
         <div>
           <p>Розкрій планки</p>
-          <input class="plank-height" type="text" />
+          <input class="plank-height" type="number" />
           <p>Кількість планок</p>
-          <input class="plank-quantity" type="text" />
+          <input class="plank-quantity" type="number" />
           <button class="button" type="button">Записати</button>
+          <p class="input-wrong"></p>
         </div>
       </section>
       <section>
         <h2>Введені дані</h2>
         <ul class="input-list"></ul>
       </section>
-      <section>
+      <section class="result">
         <h2>Розрахунок</h2>
-        <button class="calculate-button" type="button">Розрахувати</button>
-        <p class="paragraph-result"></p>
+        <button class="result-button" type="button">Розрахувати</button>
+        <p class="result-paragraph"></p>
+        <ul class="result-details-list"></ul>
       </section>
     </main>
     <footer></footer>

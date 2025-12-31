@@ -1,5 +1,13 @@
 # bender
 
+30-12-25
+v 0.03
+
+-create a detaling list of cuting
+-validation number input
+
+<!-- ---------------------------------------- -->
+
 28-12-25
 v 0.02
 
