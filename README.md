@@ -1,5 +1,13 @@
 # bender
 
+02-01-26
+v 0.04
+
+-create table price
+-change function-constructor on class
+
+<!-- ---------------------------------------- -->
+
 30-12-25
 v 0.03
 

@@ -5,9 +5,13 @@ let plankQuantity = document.querySelector(".plank-quantity");
 let btn = document.querySelector(".button");
 let inputList = document.querySelector(".input-list");
 let calcBtn = document.querySelector(".result-button");
+let priceBtn = document.querySelector(".price-button");
 let ordered = [];
 let listCuts = [];
 let detailAll = [0];
+
+let inputPrice = document.querySelector(".price-input-price");
+let inputKoef = document.querySelector(".price-input-koef");
 
 // -----------EVENTS-------------
 btn.addEventListener("click", writeResult);
@@ -25,6 +29,8 @@ inputList.addEventListener("click", (event) => {
 });
 
 calcBtn.addEventListener("click", showResult);
+
+priceBtn.addEventListener("click", priceTable);
 
 // -----------FUNCTIONS-DISPLAY------------
 
@@ -94,6 +100,47 @@ function showDetalsCutting() {
   }
 }
 
+function priceTable() {
+  let table = document.querySelector(".price-table");
+
+  let oldRow = document.querySelectorAll(".table-row");
+  oldRow.forEach((element) => {
+    element.remove();
+  });
+
+  let tableSumm = 0;
+
+  ordered.forEach((element) => {
+    let row = document.createElement("tr");
+    row.classList = "table-row";
+    for (const key in element) {
+      const dateCell = element[key];
+      let cell = document.createElement("td");
+      cell.textContent = dateCell;
+      row.append(cell);
+    }
+
+    let priceOne = document.createElement("td");
+    let priceOneValue =
+      (inputPrice.value * 2.5 * inputKoef.value) / element.listPies();
+    priceOne.insertAdjacentHTML("beforeend", `${priceOneValue.toFixed(2)} грн`);
+
+    let priceAll = document.createElement("td");
+    let priceAllValue = priceOneValue * element.qount;
+    tableSumm += priceAllValue;
+    priceAll.insertAdjacentHTML("beforeend", `${priceAllValue.toFixed(2)} грн`);
+
+    row.append(priceOne);
+    row.append(priceAll);
+
+    table.append(row);
+  });
+
+  let tableSumCell = document.querySelector(".table-sum");
+  tableSumCell.innerHTML = "";
+  tableSumCell.insertAdjacentHTML("beforeend", `${tableSumm.toFixed(2)} грн`);
+}
+
 // -----------FUNCTIONS-LOGIC------------
 
 function calculateResult() {
@@ -123,6 +170,18 @@ function calculateResult() {
   });
 }
 
+class constrDeteil {
+  constructor(cutting, qount) {
+    this.name = "Планка спеціальна";
+    this.cutting = cutting;
+    this.qount = qount;
+  }
+
+  listPies() {
+    return Math.floor(1250 / this.cutting);
+  }
+}
+
 function createZakaz() {
   let lists = document.querySelectorAll(".list-item");
   lists.forEach((element) => {
@@ -131,8 +190,4 @@ function createZakaz() {
     ordered.push(new constrDeteil(listsDetail, listsQount));
   });
   ordered.sort((a, b) => b.cutting - a.cutting);
-}
-
-function constrDeteil(cutting, qount) {
-  (this.cutting = cutting), (this.qount = qount);
 }

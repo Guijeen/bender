@@ -19,7 +19,7 @@
           <p class="input-wrong"></p>
         </div>
       </section>
-      <section>
+      <section class="dates-lists">
         <h2>Введені дані</h2>
         <ul class="input-list"></ul>
       </section>
@@ -29,6 +29,30 @@
         <p class="result-paragraph"></p>
         <ul class="result-details-list"></ul>
       </section>
+      <section class="price"></section>
+      <h2>Прайслист</h2>
+      <p>Ціна за м2</p>
+      <input class="price-input-price" type="number" />
+      <p>Коефіцієнт</p>
+      <input class="price-input-koef" type="number" />
+      <button class="price-button">Розразувати</button>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>Назва планки</th>
+            <th>Розкрій</th>
+            <th>Кількість</th>
+            <th>Ціна за одиницю</th>
+            <th>Сумма</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="4">Разом:</td>
+            <td class="table-sum"></td>
+          </tr>
+        </tfoot>
+      </table>
     </main>
     <footer></footer>
     <script src="./scripts/listCalculate.js"></script>
