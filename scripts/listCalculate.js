@@ -42,7 +42,7 @@ function writeResult(event) {
 
 function createList(height, qount) {
   let list = document.createElement("li");
-  list.classList = "list-item";
+  list.classList = "list-item section-subtitle";
 
   let paragraphHeight = document.createElement("span");
   paragraphHeight.classList = "detail";
@@ -51,6 +51,7 @@ function createList(height, qount) {
 
   let delButton = document.createElement("button");
   delButton.type = "button";
+  delButton.classList = "dashboard-button";
   delButton.insertAdjacentHTML("beforeend", "Видалити");
 
   paragraphHeight.insertAdjacentHTML("beforeend", height.value + " мм - ");
@@ -65,12 +66,9 @@ function createList(height, qount) {
 function showResult() {
   calculateResult();
 
-  let paragraphResult = document.querySelector(".result-paragraph");
+  let paragraphResult = document.querySelector(".result-value");
   paragraphResult.textContent = "";
-  paragraphResult.insertAdjacentHTML(
-    "beforeend",
-    `Вам знадобиться рівного листа -${detailAll.length} шт`
-  );
+  paragraphResult.insertAdjacentHTML("beforeend", `${detailAll.length}`);
   showDetalsCutting();
 }
 
@@ -81,6 +79,7 @@ function showDetalsCutting() {
   for (let index = 0; index < listCuts.length; index++) {
     const element = listCuts[index];
     let resultListItem = document.createElement("li");
+    resultListItem.classList = "result-list-item";
     let paragraphListCuts = document.createElement("div");
     paragraphListCuts.insertAdjacentHTML("beforeend", `Лист ${index + 1}: `);
 
@@ -89,6 +88,7 @@ function showDetalsCutting() {
     });
 
     let paragraphListRemainder = document.createElement("div");
+    paragraphListRemainder.classList = "result-list-remainder";
     paragraphListRemainder.insertAdjacentHTML(
       "beforeend",
       `Залишок: ${1250 - detailAll[index]} мм`

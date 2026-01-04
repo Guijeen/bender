@@ -4,57 +4,153 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bender</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Raleway:wght@100..900&family=Roboto:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <header></header>
+    <div class="glow"></div>
+
+    <header class="header">
+      <div class="container">
+        <a class="header-logo" href="./index.html">BENDER</a>
+      </div>
+    </header>
     <main>
-      <section class="input">
-        <h2>Ввід данних</h2>
-        <div>
-          <p>Розкрій планки</p>
-          <input class="plank-height" type="number" />
-          <p>Кількість планок</p>
-          <input class="plank-quantity" type="number" />
-          <button class="button" type="button">Записати</button>
-          <p class="input-wrong"></p>
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero-title">
+            ГНУЧКІСТЬ <span class="hero-title-span">МЕТАЛУ</span> ТОЧНІСТЬ
+            РОЗРАХУНКУ
+          </h1>
+          <h3 class="section-subtitle">
+            Інструмент для розрахунку металевих планок та автоматизації
+            кошторисів.
+          </h3>
+          <a class="hero-button" href="#input-plank-height"
+            >почати Розрахунок</a
+          >
         </div>
       </section>
-      <section class="dates-lists">
-        <h2>Введені дані</h2>
-        <ul class="input-list"></ul>
+      <section class="input" id="input-plank-height">
+        <div class="container">
+          <div class="input-title">
+            <h2 class="section-title">Керування вводом</h2>
+            <h3 class="section-subtitle">
+              Введіть параметри розкрою для формування технічного завдання.
+            </h3>
+          </div>
+          <div class="input-form glass">
+            <pс class="input-form-title">Параметри планки</pс>
+            <div class="form-card">
+              <div class="form-card-item">
+                <p class="section-subtitle">Розкрій (мм)</p>
+                <input class="plank-height input-field" type="number" />
+              </div>
+              <div class="form-card-item">
+                <p class="section-subtitle">Кількість (шт)</p>
+                <input class="plank-quantity input-field" type="number" />
+              </div>
+              <button class="button" type="button">Додати в спиок</button>
+            </div>
+          </div>
+        </div>
       </section>
+      <section class="dashboard">
+        <div class="container">
+          <h2 class="section-title dashboard-title">Черга обробки</h2>
+          <ul class="input-list glass"></ul>
+        </div>
+      </section>
+
       <section class="result">
-        <h2>Розрахунок</h2>
-        <button class="result-button" type="button">Розрахувати</button>
-        <p class="result-paragraph"></p>
-        <ul class="result-details-list"></ul>
+        <div class="container">
+          <div class="result-title">
+            <h2 class="section-title">Аналітика та Візуалізація</h2>
+            <h3 class="section-subtitle">
+              Детальний аналіз розкрою листів та їх кількість
+            </h3>
+          </div>
+          <div class="result-card">
+            <div>
+              <button class="result-button button" type="button">
+                Оновити аналіз
+              </button>
+              <div class="result-paragraph glass">
+                <p class="section-subtitle">Необхідна кілкість листів</p>
+                <p class="result-value">0</p>
+              </div>
+            </div>
+            <ul class="result-details-list glass"></ul>
+          </div>
+        </div>
       </section>
-      <section class="price"></section>
-      <h2>Прайслист</h2>
-      <p>Ціна за м2</p>
-      <input class="price-input-price" type="number" />
-      <p>Коефіцієнт</p>
-      <input class="price-input-koef" type="number" />
-      <button class="price-button">Розразувати</button>
-      <table class="price-table">
-        <thead>
-          <tr>
-            <th>Назва планки</th>
-            <th>Розкрій</th>
-            <th>Кількість</th>
-            <th>Ціна за одиницю</th>
-            <th>Сумма</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <td colspan="4">Разом:</td>
-            <td class="table-sum"></td>
-          </tr>
-        </tfoot>
-      </table>
+      <section class="price">
+        <div class="container">
+          <div class="price-title">
+            <h2 class="section-title">Розрахунок вартості</h2>
+            <h3 class="section-subtitle">
+              Автоматична генерація прайсу на основі коефіцієнтів та цін за м².
+            </h3>
+          </div>
+          <div class="proce-input glass">
+            <div>
+              <p class="section-subtitle">Ціна за м2</p>
+              <input class="price-input-price input-field" type="number" />
+            </div>
+            <div>
+              <p class="section-subtitle">Коефіцієнт</p>
+              <input class="price-input-koef input-field" type="number" />
+            </div>
+            <button class="price-button button">Сформувати прайс</button>
+          </div>
+          <div class="price-table-card glass">
+            <table class="price-table">
+              <thead>
+                <tr>
+                  <th>Назва планки</th>
+                  <th>Розкрій</th>
+                  <th>Кількість</th>
+                  <th>Ціна за одиницю</th>
+                  <th>Сумма</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <td class="price-table-footer" colspan="4">
+                    Загальна сумма:
+                  </td>
+                  <td class="table-sum">0.00 грн</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer class="footer">
+      <div class="container">
+        <a class="header-logo" href="./index.html"> BENDER</a>
+
+        <p class="section-subtitle">
+          © 2025 All rights reserved. Created by Evgen Guijeen.
+        </p>
+      </div>
+    </footer>
     <script src="./scripts/listCalculate.js"></script>
   </body>
 </html>
