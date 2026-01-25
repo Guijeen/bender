@@ -160,17 +160,18 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .form-card {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   gap: 16px;
   align-items: end;
 }
 
-.form-card .section-subtitle {
-  margin-bottom: 4px;
+.input-label {
+  width: calc((100% - 32px) / 3);
 }
 
-.form-card-item {
-  width: 1000px;
+.input-label span {
+  display: block;
+  margin-bottom: 4px;
 }
 
 .input-field {
@@ -195,7 +196,7 @@ input[type="number"]::-webkit-outer-spin-button {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  width: 100%;
+  /* width: 100%; */
   padding: 12px;
   border-radius: 8px;
   cursor: pointer;
@@ -298,10 +299,6 @@ input[type="number"]::-webkit-outer-spin-button {
   width: (calc(100%-32px) / 3);
 }
 
-.proce-input div {
-  width: 1000px;
-}
-
 .proce-input .section-subtitle {
   margin: 4px;
 }
@@ -317,7 +314,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .price-table thead {
   color: #9ca3af;
   text-transform: uppercase;
-  font-family: "Inter" sans-serif;
   border-bottom: 1px solid #9ca3af;
 }
 
@@ -355,4 +351,88 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .footer .section-subtitle {
   text-align: center;
+}
+
+/* --------MOBILE--------- */
+
+/* header */
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 16px 8px;
+  }
+
+  .header-logo {
+    font-size: 16px;
+    padding-left: 8px;
+    border-left: 4px solid orangered;
+  }
+
+  /* hero */
+
+  .hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    width: 300px;
+  }
+
+  .hero .section-subtitle {
+    font-size: 100%;
+    padding: 32px 16px;
+  }
+
+  /*Input */
+
+  .input-title,
+  .dashboard-title,
+  .result-title,
+  .price-title {
+    text-align: center;
+    border-left: 0px;
+    border-bottom: 2px solid orangered;
+    border-top: 2px solid orangered;
+    padding: 8px 0;
+  }
+
+  .input-title .section-title {
+    margin-bottom: 8px;
+  }
+
+  .form-card {
+    flex-direction: column;
+  }
+
+  .input-label {
+    width: 100%;
+  }
+
+  .button {
+    margin-top: 36px;
+  }
+
+  /* result */
+
+  .result-card {
+    flex-direction: column;
+  }
+
+  .result-button {
+    width: 100%;
+  }
+
+  .result-list-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* table */
+
+  .price-table {
+    font-size: 80%;
+  }
+
+  .table-sum {
+    font-size: 100%;
+  }
 }

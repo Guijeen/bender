@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ua">
   <head>
     <meta charset="UTF-8" />
@@ -20,7 +20,7 @@
       referrerpolicy="no-referrer"
     />
 
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="glow"></div>
@@ -56,17 +56,31 @@
           </div>
           <div class="input-form glass">
             <pс class="input-form-title">Параметри планки</pс>
-            <div class="form-card">
-              <div class="form-card-item">
-                <p class="section-subtitle">Розкрій (мм)</p>
-                <input class="plank-height input-field" type="number" />
-              </div>
-              <div class="form-card-item">
-                <p class="section-subtitle">Кількість (шт)</p>
-                <input class="plank-quantity input-field" type="number" />
-              </div>
-              <button class="button" type="button">Додати в спиок</button>
-            </div>
+            <form class="form-card">
+              <label class="section-subtitle input-label" for="plank-height">
+                <span>Розкрій (мм)</span>
+                <input
+                  type="number"
+                  class="plank-height input-field"
+                  id="plank-height"
+                  placeholder="10 мм"
+                  required
+                />
+              </label>
+              <label class="section-subtitle input-label" for="plank-quantity ">
+                <span>Кількість (шт)</span>
+                <input
+                  type="number"
+                  class="plank-quantity input-field"
+                  id="plank-quantity "
+                  placeholder="1 шт"
+                  required
+                />
+              </label>
+              <button class="button input-label" type="button">
+                Додати в спиок
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -76,7 +90,6 @@
           <ul class="input-list glass"></ul>
         </div>
       </section>
-
       <section class="result">
         <div class="container">
           <div class="result-title">
@@ -91,7 +104,7 @@
                 Оновити аналіз
               </button>
               <div class="result-paragraph glass">
-                <p class="section-subtitle">Необхідна кілкість листів</p>
+                <p class="section-subtitle">Необхідна кількість листів</p>
                 <p class="result-value">0</p>
               </div>
             </div>
@@ -107,17 +120,31 @@
               Автоматична генерація прайсу на основі коефіцієнтів та цін за м².
             </h3>
           </div>
-          <div class="proce-input glass">
-            <div>
-              <p class="section-subtitle">Ціна за м2</p>
-              <input class="price-input-price input-field" type="number" />
-            </div>
-            <div>
-              <p class="section-subtitle">Коефіцієнт</p>
-              <input class="price-input-koef input-field" type="number" />
-            </div>
-            <button class="price-button button">Сформувати прайс</button>
-          </div>
+          <form class="proce-input glass form-card">
+            <label class="section-subtitle input-label" for="price-input-price">
+              <span>Ціна зnputа м2<</span>
+              <input
+                class="input-field price-input-price"
+                type="number"
+                id="price-input-price"
+                placeholder="100 грн"
+                required
+              />
+            </label>
+            <label class="section-subtitle input-label" for="price-input-koef">
+              <span>Коефіцієнт<</span>
+              <input
+                class="input-field price-input-koef"
+                type="number"
+                id="price-input"
+                placeholder="1.1"
+                required
+              />
+            </label>
+            <button class="price-button button input-label" type="button">
+              Сформувати прайс
+            </button>
+          </form>
           <div class="price-table-card glass">
             <table class="price-table">
               <thead>
@@ -147,7 +174,7 @@
         <a class="header-logo" href="./index.html"> BENDER</a>
 
         <p class="section-subtitle">
-          © 2025 All rights reserved. Created by Evgen Guijeen.
+          © 2025-2026 All rights reserved. Created by Evgen Savushkin.
         </p>
       </div>
     </footer>

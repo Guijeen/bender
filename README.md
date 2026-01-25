@@ -1,5 +1,14 @@
 # bender
 
+25-01-26
+v0.06
+
+-refactorig input box - add <form></form> and <label>
+-create responsive for screen smaller 768px
+-fixing grammating mistakes
+
+<!-- ---------------------------------------- -->
+
 04-01-26
 v 0.05
 
