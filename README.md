@@ -6,6 +6,7 @@ v0.06
 -refactorig input box - add <form></form> and <label>
 -create responsive for screen smaller 768px
 -fixing grammating mistakes
+-add images hero section
 
 <!-- ---------------------------------------- -->
 
